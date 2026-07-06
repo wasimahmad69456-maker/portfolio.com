@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:linear-gradient(-45deg,#0f2027,#203a43,#2c5364,#1b2735);
+background-size:400% 400%;
+animation:gradient 15s ease infinite;
+color:white;
+overflow-x:hidden;
+}
+
+@keyframes gradient{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+/* Floating Background */
+
+.circle{
+position:fixed;
+border-radius:50%;
+background:rgba(255,255,255,.08);
+animation:float 20s linear infinite;
+z-index:-1;
+}
+
+.circle:nth-child(1){
+width:220px;
+height:220px;
+left:5%;
+top:15%;
+animation-duration:18s;
+}
+
+.circle:nth-child(2){
+width:140px;
+height:140px;
+right:8%;
+top:60%;
+animation-duration:15s;
+}
+
+.circle:nth-child(3){
+width:280px;
+height:280px;
+left:45%;
+bottom:-80px;
+animation-duration:25s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0) rotate(0deg);
+}
+
+50%{
+transform:translateY(-80px) rotate(180deg);
+}
+
+100%{
+transform:translateY(0) rotate(360deg);
+}
+
+}
+
+header{
+
+position:fixed;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(12px);
+z-index:100;
+}
+
+.logo{
+
+font-size:28px;
+font-weight:700;
+color:#00eaff;
+
+}
+
+nav a{
+
+color:white;
+text-decoration:none;
+margin-left:30px;
+transition:.4s;
+
+}
+
+nav a:hover{
+
+color:#00eaff;
+
+}
+
+.hero{
+
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+
+}
+
+.hero-content{
+
+max-width:700px;
+
+}
+
+.hero h1{
+
+font-size:60px;
+margin-bottom:15px;
+animation:fadeDown 1s;
+
+}
+
+.hero h1 span{
+
+color:#00eaff;
+
+}
+
+.hero p{
+
+font-size:18px;
+margin:20px 0 35px;
+
+animation:fadeUp 1.5s;
+
+}
+
+.btn{
+
+display:inline-block;
+padding:15px 35px;
+background:#00eaff;
+color:#000;
+text-decoration:none;
+font-weight:600;
+border-radius:40px;
+transition:.4s;
+box-shadow:0 0 25px #00eaff;
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px) scale(1.05);
+box-shadow:0 0 45px #00eaff;
+
+}
+
+section{
+
+padding:90px 8%;
+
+}
+
+.title{
+
+text-align:center;
+font-size:42px;
+margin-bottom:50px;
+color:#00eaff;
+
+}
+
+.glass{
+
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border-radius:20px;
+padding:35px;
+border:1px solid rgba(255,255,255,.1);
+transition:.5s;
+
+}
+
+.glass:hover{
+
+transform:translateY(-10px);
+
+}
+
+.skills{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+gap:25px;
+
+}
+
+.skill{
+
+padding:30px;
+text-align:center;
+font-size:22px;
+
+}
+
+.projects{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+
+}
+
+.project img{
+
+width:100%;
+border-radius:15px;
+
+}
+
+.project h3{
+
+margin:20px 0;
+
+}
+
+.project{
+
+overflow:hidden;
+
+}
+
+.project:hover{
+
+transform:translateY(-10px) scale(1.02);
+
+}
+
+.contact{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+
+}
+
+input,textarea{
+
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:10px;
+background:rgba(255,255,255,.1);
+color:white;
+outline:none;
+
+}
+
+textarea{
+
+height:150px;
+
+}
+
+button{
+
+margin-top:20px;
+padding:15px;
+width:100%;
+background:#00eaff;
+border:none;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+border-radius:10px;
+
+}
+
+footer{
+
+padding:30px;
+text-align:center;
+background:rgba(255,255,255,.05);
+
+}
+
+@keyframes fadeDown{
+
+from{
+opacity:0;
+transform:translateY(-60px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(60px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@media(max-width:768px){
+
+header{
+
+flex-direction:column;
+
+}
+
+nav{
+
+margin-top:15px;
+
+}
+
+nav a{
+
+margin:10px;
+
+}
+
+.hero h1{
+
+font-size:40px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+<header>
+
+<div class="logo">MyPortfolio</div>
+
+<nav>
+
+<a href="#">Home</a>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Hello, I'm <span>Wasim Ahmad</span></h1>
+
+<p>
+Creative Front-End Developer designing beautiful,
+fast and responsive websites with modern technologies.
+</p>
+
+<a href="#projects" class="btn">View My Work</a>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="title">About Me</h2>
+
+<div class="glass">
+
+<p>
+
+I am a passionate web developer who enjoys building modern,
+responsive and interactive websites with elegant UI and smooth animations.
+
+</p>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2 class="title">Skills</h2>
+
+<div class="skills">
+
+<div class="glass skill">HTML5</div>
+
+<div class="glass skill">CSS3</div>
+
+<div class="glass skill">JavaScript</div>
+
+<div class="glass skill">Bootstrap</div>
+
+<div class="glass skill">React</div>
+
+<div class="glass skill">UI Design</div>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<h2 class="title">Projects</h2>
+
+<div class="projects">
+
+<div class="glass project">
+
+<img src="https://picsum.photos/500/300?1">
+
+<h3>Portfolio Website</h3>
+
+<p>Modern animated portfolio website.</p>
+
+</div>
+
+<div class="glass project">
+
+<img src="https://picsum.photos/500/300?2">
+
+<h3>Weather App</h3>
+
+<p>Responsive weather application UI.</p>
+
+</div>
+
+<div class="glass project">
+
+<img src="c:\Users\Rauf\Documents\Classroom\image\a10ff3d9-9477-4422-8a10-939bf246e0ff.jfif">
+
+<h3>Dashboard</h3>
+
+<p>Glassmorphism admin dashboard.</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="title">Contact Me</h2>
+
+<div class="contact">
+
+<div class="glass">
+
+<h3>Let's Work Together</h3>
+
+<p>Email: wasimahmad69456@email.com</p>
+
+<p>Phone: +91 7859046944</p>
+
+</div>
+
+<div class="glass">
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Email">
+
+<textarea placeholder="Message"></textarea>
+
+<button>Send Message</button>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<h3>© 2026 John Doe | Made with ❤️ HTML & CSS</h3>
+
+</footer>
+
+</body>
+</html>
